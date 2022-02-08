@@ -9,12 +9,11 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
         // Wishing you good luck on your Adventure!
-        GameEngine engine = new GameEngine();
-        File file = new File("src/main/resources/siebel.json");
+        File file = new File("src/test/java/student/adventure/siebel.json");
         ObjectMapper mapper = new ObjectMapper();
         Layout layout = mapper.readValue(file, Layout.class);
-
+        GameEngine engine = new GameEngine(layout);
         // Wishing you good luck on your Adventure!
-        engine.start(layout);
+        engine.start();
     }
 }

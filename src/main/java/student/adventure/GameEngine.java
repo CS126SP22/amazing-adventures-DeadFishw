@@ -2,7 +2,10 @@ package student.adventure;
 import java.util.Scanner;
 
 public class GameEngine {
-
+    Layout layout;
+    public GameEngine(Layout layout) {
+        this.layout = layout;
+    }
     public void runGame(Character character) {
         Notice.printRoom(character.getCurrentRoom());
         boolean isGameRunning = true;
@@ -14,7 +17,7 @@ public class GameEngine {
         } else if (command.startsWith("go ")) {
             character.goSomewhere(command);
         } else if (command.trim().equalsIgnoreCase("examine")) {
-            
+
         } else if (command.trim().startsWith("take ")) {
             character.take(command);
         } else if (command.startsWith("drop ")) {
@@ -22,16 +25,18 @@ public class GameEngine {
         } else {
             System.out.println("I don't understand " + command);
         }
+        if (character.getCurrentRoom().getName().equals(character.getLayout().getEndingRoom())) {
+            isGameRunning = false;
+            Notice.printWin();
+        }
         if (!isGameRunning) {
             return;
         }
         runGame(character);
     }
 
-    public void start(Layout layout) {
+    public void start() {
         Character character = new Character(layout);
-
-        character.setLayout(layout);
         runGame(character);
     }
 }
