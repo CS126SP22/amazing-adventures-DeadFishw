@@ -1,0 +1,28 @@
+{
+  "startingRoom": "MatthewsStreet",
+  "endingRoom": "Siebel1314",
+  "rooms": [
+    {
+      "name": "MatthewsStreet",
+      "description": "You are on Matthews, outside the Siebel Center",
+      "items": [{"itemName": "coin1"}],
+      "directions": [
+        {
+          "directionName": "East",
+          "room": "SiebelEntry"
+        }
+      ]
+    },
+    {
+      "name": "SiebelEntry",
+      "description": "You are in the west entry of Siebel Center. You can see the elevator, the ACM office, and hallways to the north and east.",
+      "items": [{"itemName": "coin2"}],
+      "directions": [
+        {
+          "directionName": "West",
+          "room": "MatthewsStreet"
+        }
+      ]
+    }
+  ]
+}

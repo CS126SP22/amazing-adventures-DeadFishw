@@ -20,7 +20,7 @@ public class EngineTest {
     public void setUp() throws IOException {
         System.setOut(new PrintStream(outputStreamCaptor));
         // This is run before every test.
-        File file = new File("src/main/resources/siebel.json");
+        File file = new File("src/test/java/student/adventure/siebel.json");
         mapper = new ObjectMapper();
         engine = new GameEngine();
         layout = mapper.readValue(file, Layout.class);
