@@ -1,0 +1,7 @@
+"description": "You are in the west entry of Siebel Center. You can see the elevator, the ACM office, and hallways to the north and east.",
+"items": [{"itemName": "coin2"}],
+"directions": [
+{
+"directionName": "West",
+"room": "MatthewsStreet"
+}]
