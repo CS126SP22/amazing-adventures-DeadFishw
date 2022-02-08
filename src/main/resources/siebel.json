@@ -5,6 +5,7 @@
     {
       "name": "MatthewsStreet",
       "description": "You are on Matthews, outside the Siebel Center",
+      "items": [{"itemName": "coin1"}],
       "directions": [
         {
           "directionName": "East",
@@ -15,6 +16,7 @@
     {
       "name": "SiebelEntry",
       "description": "You are in the west entry of Siebel Center. You can see the elevator, the ACM office, and hallways to the north and east.",
+      "items": [{"itemName": "coin2"}],
       "directions": [
         {
           "directionName": "West",
@@ -37,6 +39,7 @@
     {
       "name": "AcmOffice",
       "description": "You are in the ACM office.  There are lots of friendly ACM people.",
+      "items": [{"itemName": "coin2"}],
       "directions": [
         {
           "directionName": "South",
@@ -47,6 +50,7 @@
     {
       "name": "SiebelNorthHallway",
       "description": "You are in the north hallway.  You can see Siebel 1112 and the door toward NCSA.",
+      "items": [{"itemName": "coin3"}],
       "directions": [
         {
           "directionName": "South",
@@ -61,6 +65,7 @@
     {
       "name": "Siebel1112",
       "description": "You are in Siebel 1112.  There is space for two code reviews in this room.",
+      "items": [{"itemName": "coin4"}],
       "directions": [
         {
           "directionName": "West",
@@ -71,6 +76,7 @@
     {
       "name": "SiebelEastHallway",
       "description": "You are in the east hallway.  You can see Einstein Bros' Bagels and a stairway.",
+      "items": [{"itemName": "coin5"}],
       "directions": [
         {
           "directionName": "West",
@@ -89,6 +95,7 @@
     {
       "name": "Siebel1314",
       "description": "You are in Siebel 1314.  There are happy CS 126 students doing a code review.",
+      "items": [{"itemName": "coin6"}],
       "directions": [
         {
           "directionName": "North",
@@ -99,6 +106,7 @@
     {
       "name": "SiebelBasement",
       "description": "You are in the basement of Siebel.  You see tables with students working and door to computer labs.",
+      "items": [{"itemName": "coin7"}],
       "directions": [
         {
           "directionName": "Up",
