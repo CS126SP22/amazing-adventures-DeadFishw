@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * The Rooms in the map.
+ * The room object in the map.
  */
 public class Room {
     private String name;
@@ -44,6 +44,11 @@ public class Room {
         this.items = new ArrayList<>(Arrays.asList(items));
     }
 
+    /**
+     * Remove the item with the given name.
+     * @param itemName the name of the item to be removed
+     * @return the item object that is removed; null if the item is not found.
+     */
     public Item removeItem(String itemName) {
         for (Item item: items) {
             if (item.getItemName().equals(itemName)) {
@@ -54,6 +59,10 @@ public class Room {
         return null;
     }
 
+    /**
+     * Add an item to the room.
+     * @param item the item to be added to the room.
+     */
     public void addItem(Item item) {
         items.add(item);
     }

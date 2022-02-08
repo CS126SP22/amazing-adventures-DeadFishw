@@ -3,6 +3,9 @@ package student.adventure;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The character of the game.
+ */
 public class Character {
     private Room currentRoom;
     private List<Item> items = new ArrayList<>();
@@ -45,6 +48,10 @@ public class Character {
         this.items = items;
     }
 
+    /**
+     * take the item indicated by the command; if fails print warning.
+     * @param command the command taken in
+     */
     public void take(String command) {
         String itemToTake = command.substring(4).trim().toLowerCase();
         for (Item item: currentRoom.getItems()) {
@@ -56,6 +63,10 @@ public class Character {
         Notice.warnCannotTake(itemToTake);
     }
 
+    /**
+     * drop the item indicated by the command; if fails print warning.
+     * @param command the command taken in
+     */
     public void drop(String command) {
         String itemToDrop = command.substring(4);
         for (Item item: items) {
@@ -68,6 +79,10 @@ public class Character {
         Notice.warnCannotDrop(itemToDrop);
     }
 
+    /**
+     * go the direction indicated by the command; if fails print warning.
+     * @param command the command taken in
+     */
     public void goSomewhere(String command) {
         String directionToGo = command.substring(3).trim();
         for (Direction direction: currentRoom.getDirections()) {

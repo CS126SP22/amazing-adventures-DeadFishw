@@ -1,5 +1,8 @@
 package student.adventure;
 
+/**
+ * The items of the game.
+ */
 public class Item {
     private String itemName;
     public Item() {}

@@ -1,5 +1,8 @@
 package student.adventure;
 
+/**
+ * The layout (map) of the game.
+ */
 public class Layout {
     String startingRoom;
     String endingRoom;

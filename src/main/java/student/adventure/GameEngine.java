@@ -1,11 +1,19 @@
 package student.adventure;
 import java.util.Scanner;
 
+/**
+ * The game engine of the game.
+ */
 public class GameEngine {
     Layout layout;
     public GameEngine(Layout layout) {
         this.layout = layout;
     }
+
+    /**
+     * Run the game given the character.
+     * @param character The character to start the game
+     */
     public void runGame(Character character) {
         Notice.printRoom(character.getCurrentRoom());
         boolean isGameRunning = true;
@@ -35,6 +43,9 @@ public class GameEngine {
         runGame(character);
     }
 
+    /**
+     * Initialize character and the game.
+     */
     public void start() {
         Character character = new Character(layout);
         runGame(character);

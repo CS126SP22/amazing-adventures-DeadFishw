@@ -1,5 +1,8 @@
 package student.adventure;
 
+/**
+ * The directions the character goes.
+ */
 public class Direction {
     private String directionName;
     private String room;
