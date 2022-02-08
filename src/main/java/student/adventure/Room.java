@@ -41,7 +41,7 @@ public class Room {
     }
 
     public void setItems(Item[] items) {
-        this.items = Arrays.asList(items);
+        this.items = new ArrayList<>(Arrays.asList(items));
     }
 
     public Item removeItem(String itemName) {
