@@ -6,15 +6,19 @@ import student.server.GameStatus;
 import java.util.Scanner;
 
 public class GameEngineForServer {
-    Layout layout;
-    Character character;
-    GameStatus gameStatus;
+    private Layout layout;
+    private Character character;
+    private GameStatus gameStatus;
 
     public GameEngineForServer(Character character, GameStatus gameStatus, Layout layout) {
         this.character = character;
         this.gameStatus = gameStatus;
         this.layout = layout;
         updateStatus();
+    }
+
+    public Character getCharacter() {
+        return character;
     }
 
     public GameStatus getGameStatus() {

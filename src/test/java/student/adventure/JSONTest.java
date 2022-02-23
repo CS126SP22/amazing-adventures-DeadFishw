@@ -3,7 +3,7 @@ package student.adventure;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 
-import javax.validation.constraints.AssertTrue;
+
 import java.io.*;
 
 import static org.junit.Assert.*;

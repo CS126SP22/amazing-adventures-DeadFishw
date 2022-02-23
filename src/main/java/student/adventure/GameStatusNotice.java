@@ -3,6 +3,8 @@ package student.adventure;
 import student.server.AdventureState;
 import student.server.GameStatus;
 
+import java.util.HashMap;
+
 public class GameStatusNotice {
     /**
      * Print the warning that the character cannot go that direction
@@ -43,7 +45,7 @@ public class GameStatusNotice {
     public static GameStatus printWin(GameStatus currentStatus) {
         String message = "Congratulations! You Win! Enjoy your Journey!";
         return new GameStatus(false, currentStatus.getId(), message, currentStatus.getImageUrl(),
-                currentStatus.getVideoUrl(), currentStatus.getState(), currentStatus.getCommandOptions());
+                currentStatus.getVideoUrl(), currentStatus.getState(), new HashMap<>());
     }
 
     /**
