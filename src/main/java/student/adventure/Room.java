@@ -51,7 +51,7 @@ public class Room {
      */
     public Item removeItem(String itemName) {
         for (Item item: items) {
-            if (item.getItemName().equals(itemName)) {
+            if (item.getItemName().equalsIgnoreCase(itemName)) {
                 items.remove(item);
                 return item;
             }
