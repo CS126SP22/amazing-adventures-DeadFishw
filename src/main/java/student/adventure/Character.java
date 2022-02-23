@@ -1,7 +1,8 @@
 package student.adventure;
 
-import java.util.ArrayList;
-import java.util.List;
+import student.server.GameStatus;
+
+import java.util.*;
 
 /**
  * The character of the game.
@@ -22,6 +23,7 @@ public class Character {
         }
         this.layout = layout;
     }
+
     public Layout getLayout() {
         return layout;
     }
@@ -50,51 +52,93 @@ public class Character {
 
     /**
      * take the item indicated by the command; if fails print warning.
-     * @param command the command taken in
+     * @param itemToTake the command taken in
      */
-    public void take(String command) {
-        String itemToTake = command.substring(4).trim().toLowerCase();
+    public boolean take(String itemToTake) {
         for (Item item: currentRoom.getItems()) {
-            if (item.getItemName().equals(itemToTake)) {
+            if (item.getItemName().equalsIgnoreCase(itemToTake.trim())) {
                 items.add(currentRoom.removeItem(itemToTake));
-                return;
+                return true;
             }
         }
         Notice.warnCannotTake(itemToTake);
+        return false;
     }
 
     /**
      * drop the item indicated by the command; if fails print warning.
-     * @param command the command taken in
+     * @param itemToDrop the command taken in
      */
-    public void drop(String command) {
-        String itemToDrop = command.substring(4);
+    public boolean drop(String itemToDrop) {
         for (Item item: items) {
-            if (item.getItemName().equals(itemToDrop.trim().toLowerCase())) {
+            if (item.getItemName().trim().equalsIgnoreCase(itemToDrop.trim())) {
                 currentRoom.addItem(item);
                 items.remove(item);
-                return;
+                return true;
             }
         }
         Notice.warnCannotDrop(itemToDrop);
+        return false;
     }
 
     /**
      * go the direction indicated by the command; if fails print warning.
-     * @param command the command taken in
+     * @param directionToGo the command taken in
      */
-    public void goSomewhere(String command) {
-        String directionToGo = command.substring(3).trim();
+    public boolean goSomewhere(String directionToGo) {
         for (Direction direction: currentRoom.getDirections()) {
             if (directionToGo.trim().equalsIgnoreCase(direction.getDirectionName())) {
                 for (Room room : layout.getRooms()) {
                     if (direction.getRoom().equalsIgnoreCase(room.getName())) {
                         setCurrentRoom(room);
-                        return;
+                        return true;
                     }
                 }
             }
         }
         Notice.warnCannotGo(directionToGo);
+        return false;
+    }
+
+    /**
+     * Get the command options of the character at the point.
+     *
+     * @return the commands that the character can receive at the point.
+     */
+    public Map<String, List<String>> getCommandOptions() {
+        Map<String, List<String>> commandOptions =  new HashMap<>();
+        List emptyStringList = new ArrayList<String>();
+        emptyStringList.add("");
+        commandOptions.put("examine", emptyStringList);
+        //commandOptions.put("checkLoad", emptyStringList);
+        commandOptions.put("checkWorth", emptyStringList);
+        if (currentRoom.getDirections().length > 0) {
+            List<String> directions = new ArrayList<>();
+            if (currentRoom.getDirections() != null && currentRoom.getDirections().length != 0) {
+                for(Direction direction: currentRoom.getDirections()) {
+                    directions.add(direction.getDirectionName());
+                }
+            }
+            commandOptions.put("go", directions);
+        }
+        if (currentRoom.getItems().size() > 0) {
+            List<String> itemStrings = new ArrayList<>();
+            if (currentRoom.getItems() != null && currentRoom.getItems().size() != 0) {
+                for(Item item: currentRoom.getItems()) {
+                    itemStrings.add(item.getItemName());
+                }
+            }
+            commandOptions.put("take", itemStrings);
+        }
+        if (this.getItems().size() > 0) {
+            List<String> itemStrings = new ArrayList<>();
+            if (items != null && items.size() != 0) {
+                for(Item item: items) {
+                    itemStrings.add(item.getItemName());
+                }
+            }
+            commandOptions.put("drop", itemStrings);
+        }
+        return commandOptions;
     }
 }

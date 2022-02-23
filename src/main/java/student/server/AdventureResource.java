@@ -1,15 +1,27 @@
 package student.server;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+
+
+import java.io.File;
+import java.io.IOException;
 
 @Path("/")
 public class AdventureResource {
     /**
      * The single static adventure service instance used for this API.
      */
-    private static AdventureService service; // = new YourAdventureServiceHere();
+    private static AdventureService service;
+
+    static {
+        try {
+            service = new MyAdventureService(new File("src/main/resources/longLakeTown.json"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * The API endpoint to test connectivity.
@@ -18,8 +30,7 @@ public class AdventureResource {
     @GET
     @Path("ping")
     public String ping() {
-        // TODO: This method should return `pong`.
-        return "";
+        return "pong";
     }
 
     /**

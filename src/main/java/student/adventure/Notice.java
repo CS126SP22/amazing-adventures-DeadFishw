@@ -1,5 +1,7 @@
 package student.adventure;
 
+import student.server.GameStatus;
+
 /**
  * Prints warnings and information of the game.
  */
@@ -53,15 +55,21 @@ public class Notice {
                 output += "\n";
             }
         }
-        output += "Items visible: ";
-        for (int i = 0; i < room.getItems().size(); i++) {
-            output += room.getItems().get(i).getItemName();
-            if (i != room.getItems().size() - 1) {
-                output += ", ";
-            } else {
-                output += "\n";
+        if (!room.getItems().isEmpty()) {
+            output += "Items visible: ";
+            for (int i = 0; i < room.getItems().size(); i++) {
+                output += room.getItems().get(i).getItemName();
+                if (i != room.getItems().size() - 1) {
+                    output += ", ";
+                } else {
+                    output += "\n";
+                }
             }
         }
         System.out.print(output);
+    }
+
+    public static void warnDontUnderstand(String command) {
+        System.out.println("I don't understand " + command);
     }
 }
