@@ -38,7 +38,6 @@ public class MyAdventureService implements AdventureService {
                 new GameStatus(false, id, "",
                         "", "", new AdventureState(), character.getCommandOptions()),
                 layout));
-        System.out.println("newgame");
         return id;
     }
 
@@ -54,7 +53,6 @@ public class MyAdventureService implements AdventureService {
 
     @Override
     public void executeCommand(int id, Command command) {
-        System.out.println("EXECUTETETETETE");
         games.get(id).runGame(command);
     }
 

@@ -113,7 +113,6 @@ public class Character {
         List emptyStringList = new ArrayList<String>();
         emptyStringList.add("");
         commandOptions.put("examine", emptyStringList);
-        commandOptions.put("reset", emptyStringList);
         if (currentRoom.getDirections().length > 0) {
             List<String> directions = new ArrayList<>();
             if (currentRoom.getDirections() != null && currentRoom.getDirections().length != 0) {
