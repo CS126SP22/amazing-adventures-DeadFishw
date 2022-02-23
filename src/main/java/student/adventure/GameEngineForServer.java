@@ -60,7 +60,7 @@ public class GameEngineForServer {
             gameStatus = GameStatusNotice.warnDontUnderstand(command.getCommandName() + " " + command.getCommandValue(), gameStatus);
         }
         if (character.getCurrentRoom().getName().equals(character.getLayout().getEndingRoom())) {
-            gameStatus = GameStatusNotice.printWin(gameStatus);
+            gameStatus = GameStatusNotice.printWin(character, gameStatus);
         }
     }
 }

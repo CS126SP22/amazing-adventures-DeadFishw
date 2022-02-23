@@ -1,5 +1,6 @@
 package student.adventure;
 
+import com.fasterxml.jackson.core.io.CharTypes;
 import student.server.AdventureState;
 import student.server.GameStatus;
 
@@ -42,8 +43,11 @@ public class GameStatusNotice {
     /**
      * Print win message
      */
-    public static GameStatus printWin(GameStatus currentStatus) {
-        String message = "Congratulations! You Win! Enjoy your Journey!";
+    public static GameStatus printWin(Character character, GameStatus currentStatus) {
+        String message = "Congratulations! You Win! Enjoy your Journey! Throughout your journey, you have walked pass the following places: \n";
+        for (int i = 0; i < character.getPath().size(); i++) {
+            message += character.getPath().get(i) + "\n";
+        }
         return new GameStatus(false, currentStatus.getId(), message, currentStatus.getImageUrl(),
                 currentStatus.getVideoUrl(), currentStatus.getState(), new HashMap<>());
     }

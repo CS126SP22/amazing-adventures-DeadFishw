@@ -12,13 +12,13 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
         // Wishing you good luck on your Adventure!
-//        HttpServer server = AdventureServer.createServer(AdventureResource.class);
-//        server.start();
-        File file = new File("src/main/resources/longLakeTown.json");
-        ObjectMapper mapper = new ObjectMapper();
-        MyAdventureService adventure = new MyAdventureService(file);
-        Layout layout = mapper.readValue(file, Layout.class);
-        GameEngine engine = new GameEngine(layout);
-        engine.start();
+        HttpServer server = AdventureServer.createServer(AdventureResource.class);
+        server.start();
+//        File file = new File("src/main/resources/longLakeTown.json");
+//        ObjectMapper mapper = new ObjectMapper();
+//        MyAdventureService adventure = new MyAdventureService(file);
+//        Layout layout = mapper.readValue(file, Layout.class);
+//        GameEngine engine = new GameEngine(layout);
+//        engine.start();
     }
 }

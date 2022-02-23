@@ -11,7 +11,7 @@ public class Character {
     private Room currentRoom;
     private List<Item> items = new ArrayList<>();
     private Layout layout;
-
+    private List<String> path = new ArrayList<>();
     public Character(Layout layout) {
         for (Room startingRoom: layout.rooms) {
             if (startingRoom.getName().equals(layout.getStartingRoom())) {
@@ -23,7 +23,9 @@ public class Character {
         }
         this.layout = layout;
     }
-
+    public List<String> getPath() {
+        return path;
+    }
     public Layout getLayout() {
         return layout;
     }
@@ -91,6 +93,7 @@ public class Character {
                 for (Room room : layout.getRooms()) {
                     if (direction.getRoom().equalsIgnoreCase(room.getName())) {
                         setCurrentRoom(room);
+                        path.add(room.getName());
                         return true;
                     }
                 }
