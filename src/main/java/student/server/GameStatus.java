@@ -84,4 +84,12 @@ public class GameStatus {
     public Map<String, List<String>> getCommandOptions() {
         return commandOptions;
     }
+
+    public void setMessage(String toString) {
+        message = toString;
+    }
+
+    public void setCommandOptions(Map<String, List<String>> commandOptions) {
+        this.commandOptions = commandOptions;
+    }
 }

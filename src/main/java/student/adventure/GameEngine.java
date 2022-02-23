@@ -23,13 +23,13 @@ public class GameEngine {
                 command.trim().equalsIgnoreCase("exit")) {
             isGameRunning = false;
         } else if (command.startsWith("go ")) {
-            character.goSomewhere(command);
+            character.goSomewhere(command.substring(3).trim());
         } else if (command.trim().equalsIgnoreCase("examine")) {
 
         } else if (command.trim().startsWith("take ")) {
-            character.take(command);
+            character.take(command.substring(4).trim());
         } else if (command.startsWith("drop ")) {
-            character.drop(command);
+            character.drop(command.substring(4).trim());
         } else {
             System.out.println("I don't understand " + command);
         }
