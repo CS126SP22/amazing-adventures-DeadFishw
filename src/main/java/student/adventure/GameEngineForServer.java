@@ -31,8 +31,8 @@ public class GameEngineForServer {
     }
 
     /**
-     * Run the game given the character.
-     * @param command The character to start the game
+     * Run the game given the command.
+     * @param command The command to run
      */
     public void runGame(Command command) {
         Notice.printRoom(character.getCurrentRoom());

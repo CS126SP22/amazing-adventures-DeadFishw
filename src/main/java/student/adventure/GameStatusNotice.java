@@ -10,6 +10,8 @@ public class GameStatusNotice {
     /**
      * Print the warning that the character cannot go that direction
      * @param direction the direction that the character attempts to go
+     * @param currentStatus the current status
+     * @return the game status that warns cannot go
      */
     public static GameStatus warnCannotGo(String direction, GameStatus currentStatus) {
         String message = "I can't go \"" +
@@ -21,6 +23,8 @@ public class GameStatusNotice {
     /**
      * Print the warning that the character cannot take an item
      * @param itemName the name of the item that the character attempts to take
+     * @param currentStatus the current status
+     * @return the game status that warns cannot take
      */
     public static GameStatus warnCannotTake(String itemName, GameStatus currentStatus) {
         String message = "There is no \"" +
@@ -32,6 +36,8 @@ public class GameStatusNotice {
     /**
      * Print the warning that the character cannot drop an item
      * @param itemName the name of the item that the character attempts to drop
+     * @param currentStatus the current status
+     * @return the game status that warns cannot drop
      */
     public static GameStatus warnCannotDrop(String itemName, GameStatus currentStatus) {
         String message = "You don't have \"" +
@@ -42,6 +48,9 @@ public class GameStatusNotice {
 
     /**
      * Print win message
+     * @param character the current character
+     * @param currentStatus the current status
+     * @return the game status that the player wins
      */
     public static GameStatus printWin(Character character, GameStatus currentStatus) {
         String message = "Congratulations! You Win! Enjoy your Journey! Throughout your journey, you have walked pass the following places: \n";
@@ -55,6 +64,8 @@ public class GameStatusNotice {
     /**
      * Print the description of the room.
      * @param room the room to be printed
+     * @param currentStatus the current status
+     * @return the game status that prints the current room
      */
     public static GameStatus printRoom(Room room, GameStatus currentStatus) {
         String message = room.getDescriptions() +
@@ -80,6 +91,12 @@ public class GameStatusNotice {
                 currentStatus.getVideoUrl(), currentStatus.getState(), currentStatus.getCommandOptions());
     }
 
+    /**
+     * print do not understand
+     * @param command
+     * @param currentStatus
+     * @return the game status with message don't understand
+     */
     public static GameStatus warnDontUnderstand(String command, GameStatus currentStatus) {
         String message = "I don't understand " + command;
         return new GameStatus(false, currentStatus.getId(), message, currentStatus.getImageUrl(),
